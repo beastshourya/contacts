@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`setName() 1`] = `
+{
+  "email": "",
+  "key": "",
+  "myContacts": [],
+  "name": "",
+  "phone_no": "",
+}
+`;
