@@ -1,7 +1,8 @@
-import { ADDCONTACTS, DELETES, UPDATE } from "./actionType";
+import { ADDCONTACTS, DELETES, SEARCH, UPDATE } from "./actionType";
 
 const initialState = {
   myContacts: [],
+  filteredContacts: [],
 };
 
 export const mainReducer = (state = initialState, action) => {
@@ -10,12 +11,16 @@ export const mainReducer = (state = initialState, action) => {
       return {
         ...state,
         myContacts: [...state.myContacts, action.payload],
+        filteredContacts: [...state.myContacts, action.payload],
       };
 
     case DELETES:
       return {
         ...state,
         myContacts: state.myContacts.filter((item) => item.key !== action.key),
+        filteredContacts: state.myContacts.filter(
+          (item) => item.key !== action.key
+        ),
       };
     case UPDATE:
       return {
@@ -23,6 +28,22 @@ export const mainReducer = (state = initialState, action) => {
         myContacts: state.myContacts.map((contact) =>
           contact.key == action.payload.key ? action.payload : contact
         ),
+
+        filteredContacts: state.myContacts.map((contact) =>
+          contact.key == action.payload.key ? action.payload : contact
+        ),
+      };
+    case SEARCH:
+      return {
+        ...state,
+        filteredContacts: state.myContacts.filter((item) => {
+          return item.name.toLowerCase().includes(action.payload.toLowerCase());
+        }),
+        filteredContacts: state.myContacts.filter((item) => {
+          return item.email
+            .toLowerCase()
+            .includes(action.payload.toLowerCase());
+        }),
       };
 
     default:

@@ -1,4 +1,4 @@
-import { ADDCONTACTS, EDIT, DELETES, UPDATE } from "./actionType";
+import { ADDCONTACTS, EDIT, DELETES, UPDATE,SEARCH } from "./actionType";
 
 export const Contacts = (contact) => ({
   type: ADDCONTACTS,
@@ -12,4 +12,8 @@ export const deletes = (key) => ({
 export const Update = (contact) => ({
   type: UPDATE,
   payload: contact,
+});
+export const Search = (input) => ({
+  type: SEARCH,
+  payload:input
 });
