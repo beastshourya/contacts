@@ -4,8 +4,6 @@ import {
   View,
   Text,
   TextInput,
-  Button,
-  Modal,
   FlatList,
   TouchableOpacity,
 } from "react-native";
@@ -18,20 +16,24 @@ export default function Home({ navigation }) {
     navigation.navigate("Form");
   };
 
-  // const Contacts = useSelector((state) => state.myContacts);
+ 
   const filteredContacts = useSelector((state) => state.filteredContacts);
-  console.log('filteredContacts', filteredContacts);
+  console.log("filteredContacts", filteredContacts);
 
+  const sortedContacts = filteredContacts.sort((a, b) => {
+    let fa = a.name.toLowerCase(),
+      fb = b.name.toLowerCase();
 
-  // const [data, setData] = useState(Contacts);
+    if (fa < fb) {
+      return -1;
+    }
+    if (fa > fb) {
+      return 1;
+    }
+    return 0;
+  });
 
-  // const searchName = (input) => {
-  //   let data = Contacts;
-  //   let searchData = data.filter((item) => {
-  //     return item.name.toLowerCase().includes(input.toLowerCase());
-  //   });
-  //   setData(searchData);
-  // };
+  console.log(sortedContacts);
 
   const dispatch = useDispatch();
 
@@ -48,23 +50,22 @@ export default function Home({ navigation }) {
       <TextInput
         placeholder="Search Contacts"
         style={Stylesa.searchBar}
-        onChangeText={(text) => {dispatch({ type: SEARCH, payload:text })
-                              // setData(filteredContacts)
-                      }
-                          
-                      }
+        onChangeText={(text) => {
+          dispatch({ type: SEARCH, payload: text });
+        
+        }}
       />
 
       <View style={Stylesa.container}>
         <FlatList
-          data={filteredContacts}
+          data={sortedContacts}
           renderItem={({ item }) => (
             <View>
               <TouchableOpacity
                 onPress={() => navigation.navigate("ContactDetails", item)}
               >
                 <Text style={Stylesa.text}>
-                  {item?.name.slice(0, 15) + " " + item?.email.slice(0, 15)}
+                  {item?.name.slice(0, 15) + " " + item?.lastName}
                 </Text>
               </TouchableOpacity>
             </View>

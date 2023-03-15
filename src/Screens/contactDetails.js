@@ -20,7 +20,7 @@ export default function ContactDetails({ navigation }) {
 
   let ContactDetail = {
     name: navigation.getParam("name"),
-    lastName: navigation.getParam("email"),
+    lastName: navigation.getParam("lastName"),
     phone_no: navigation.getParam("phone_no"),
     key: navigation.getParam("key"),
   };
@@ -48,7 +48,7 @@ export default function ContactDetails({ navigation }) {
             <MaterialIcons name="person" size={40} color="black" />
           </View>
           <Text style={stylesq.firstName}>
-            {navigation.getParam("name")} {navigation.getParam("email")}
+            {navigation.getParam("name")} {navigation.getParam("lastName")}
           </Text>
         </View>
         <View style={stylesq.box}>
@@ -66,20 +66,20 @@ export default function ContactDetails({ navigation }) {
         >
           <MaterialIcons name="call" size={50} color="black" />
         </TouchableOpacity>
-        <Text>        </Text>
+        <Text> </Text>
         <TouchableOpacity
           onPress={() => Communications.text(navigation.getParam("phone_no"))}
         >
           <MaterialIcons name="message" size={50} color="black" />
         </TouchableOpacity>
-        <Text>        </Text>
+        <Text> </Text>
 
         <View>
           <TouchableOpacity onPress={deleteButton}>
             <MaterialIcons name="delete" size={50} color="black" />
           </TouchableOpacity>
         </View>
-        <Text>        </Text>
+        <Text> </Text>
         <TouchableOpacity onPress={editScreen}>
           <MaterialIcons name="edit" size={50} color="black" />
         </TouchableOpacity>

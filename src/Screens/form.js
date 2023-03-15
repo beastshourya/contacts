@@ -17,7 +17,7 @@ export default function Form({ navigation }) {
   const contact = {
     key: Math.random(),
     name: firstName,
-    email: lastName,
+    lastName: lastName,
     phone_no: phone_no,
   };
 
@@ -52,7 +52,7 @@ export default function Form({ navigation }) {
     console.log(Contacts.find((a) => a.name === firstName));
     if (
       Contacts.find((a) => a.name === firstName) &&
-      Contacts.find((a) => a.email === lastName) &&
+      Contacts.find((a) => a.lastName === lastName) &&
       Contacts.find((a) => a.phone_no === phone_no)
     )
       Alert.alert("OOPS!", "Contact already present.", [

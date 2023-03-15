@@ -8,8 +8,6 @@ import { MaterialIcons } from "@expo/vector-icons";
 export default function Form({ navigation }) {
   const Contacts = useSelector((state) => state.myContacts);
 
-
-
   const [firstName, setFirstName] = useState(navigation.getParam("name"));
   const [lastName, setLastName] = useState(navigation.getParam("lastName"));
   const [phone_no, setPhone_no] = useState(navigation.getParam("phone_no"));
@@ -19,7 +17,7 @@ export default function Form({ navigation }) {
   const contact = {
     key: navigation.getParam("key"),
     name: firstName,
-    email: lastName,
+    lastName: lastName,
     phone_no: phone_no,
   };
 
@@ -51,10 +49,9 @@ export default function Form({ navigation }) {
   };
 
   const saveFinal = () => {
-
     if (
       Contacts.find((a) => a.name === firstName) &&
-      Contacts.find((a) => a.email === lastName) &&
+      Contacts.find((a) => a.lastName === lastName) &&
       Contacts.find((a) => a.phone_no === phone_no)
     )
       Alert.alert("OOPS!", "Contact already present.", [
