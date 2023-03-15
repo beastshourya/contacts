@@ -40,7 +40,7 @@ export const mainReducer = (state = initialState, action) => {
           return item.name.toLowerCase().includes(action.payload.toLowerCase());
         }),
         filteredContacts: state.myContacts.filter((item) => {
-          return item.email
+          return item.lastName
             .toLowerCase()
             .includes(action.payload.toLowerCase());
         }),
