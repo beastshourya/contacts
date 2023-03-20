@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { StyleSheet, View, Text, TextInput, Button, Alert } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 
-import { UPDATE } from "../store/actionType";
+import { UPDATE_CONTACT } from "../store/actionType";
 import { MaterialIcons } from "@expo/vector-icons";
 
 export default function Form({ navigation }) {
@@ -58,7 +58,7 @@ export default function Form({ navigation }) {
         { text: "Understood" },
       ]);
     else {
-      dispatch({ type: UPDATE, payload: contact });
+      dispatch({ type: UPDATE_CONTACT, payload: contact });
       navigation.navigate("Home");
     }
   };

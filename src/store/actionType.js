@@ -1,4 +1,4 @@
-export const ADDCONTACTS = "Contacts";
-export const DELETES = "Deletes";
-export const UPDATE = "Update";
-export const SEARCH = 'Search';
+export const ADD_CONTACT = "Contacts";
+export const DELETE_CONTACT = "Deletes";
+export const UPDATE_CONTACT = "Update";
+export const SEARCH_CONTACT = 'Search';

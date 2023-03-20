@@ -29,8 +29,9 @@ exports[`renders correctly 1`] = `
     <View
       style={
         {
-          "marginLeft": 160,
+          "marginLeft": "87%",
           "marginTop": 5,
+          "position": "absolute",
         }
       }
     >
@@ -55,6 +56,18 @@ exports[`renders correctly 1`] = `
       </View>
     </View>
   </View>
+  <TextInput
+    onChangeText={[Function]}
+    placeholder="Search Contacts"
+    style={
+      {
+        "borderRadius": 20,
+        "borderWidth": 1,
+        "margin": 6,
+        "padding": 12,
+      }
+    }
+  />
   <View
     style={
       {

@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { MaterialIcons } from "@expo/vector-icons";
-import { DELETES } from "../store/actionType";
+import { DELETE_CONTACT } from "../store/actionType";
 import call from "react-native-phone-call";
 import Communications from "react-native-communications";
 
@@ -36,7 +36,7 @@ export default function ContactDetails({ navigation }) {
   const dispatch = useDispatch();
 
   const deleteButton = () => {
-    dispatch({ type: DELETES, key: navigation.getParam("key") });
+    dispatch({ type: DELETE_CONTACT, key: navigation.getParam("key") });
     navigation.navigate("Home");
   };
 
@@ -66,20 +66,20 @@ export default function ContactDetails({ navigation }) {
         >
           <MaterialIcons name="call" size={50} color="black" />
         </TouchableOpacity>
-        <Text> </Text>
+        <Text>        </Text>
         <TouchableOpacity
           onPress={() => Communications.text(navigation.getParam("phone_no"))}
         >
           <MaterialIcons name="message" size={50} color="black" />
         </TouchableOpacity>
-        <Text> </Text>
+        <Text>        </Text>
 
         <View>
           <TouchableOpacity onPress={deleteButton}>
             <MaterialIcons name="delete" size={50} color="black" />
           </TouchableOpacity>
         </View>
-        <Text> </Text>
+        <Text>        </Text>
         <TouchableOpacity onPress={editScreen}>
           <MaterialIcons name="edit" size={50} color="black" />
         </TouchableOpacity>

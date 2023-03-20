@@ -1,19 +1,19 @@
-import { ADDCONTACTS, EDIT, DELETES, UPDATE,SEARCH } from "./actionType";
+import { ADD_CONTACT,DELETE_CONTACT,UPDATE_CONTACT,SEARCH_CONTACT} from "./actionType";
 
 export const Contacts = (contact) => ({
-  type: ADDCONTACTS,
+  type: ADD_CONTACT,
   payload: contact,
 });
 
 export const deletes = (key) => ({
-  type: DELETES,
+  type: DELETE_CONTACT,
   key: "",
 });
 export const Update = (contact) => ({
-  type: UPDATE,
+  type: UPDATE_CONTACT,
   payload: contact,
 });
 export const Search = (input) => ({
-  type: SEARCH,
+  type: SEARCH_CONTACT,
   payload:input
 });

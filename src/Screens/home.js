@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { MaterialIcons } from "@expo/vector-icons";
-import { SEARCH } from "../store/actionType";
+import { SEARCH_CONTACT } from "../store/actionType";
 
 export default function Home({ navigation }) {
   const placeHolder = () => {
@@ -51,7 +51,7 @@ export default function Home({ navigation }) {
         placeholder="Search Contacts"
         style={Stylesa.searchBar}
         onChangeText={(text) => {
-          dispatch({ type: SEARCH, payload: text });
+          dispatch({ type: SEARCH_CONTACT, payload: text });
         
         }}
       />

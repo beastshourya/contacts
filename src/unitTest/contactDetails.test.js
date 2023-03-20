@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import ContactDetails from "../contactDetails";
+import ContactDetails from "../Screens/contactDetails";
 import { Provider } from "react-redux";
 import { store } from "../store/store";
 
